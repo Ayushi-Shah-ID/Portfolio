@@ -99,11 +99,10 @@
             position: absolute;
             background-color: #F8F6F2;
         }
-        #book {
-            width: 100%;
-            max-width: 900px;
-            height: 490px;
-            margin: 0 auto;
+        #book{
+            width:100%;
+            max-width:1700px;
+            margin:auto;
         }
         
         .page {
@@ -118,6 +117,69 @@
             object-fit: contain;
             display: block;
         }
+        .stf__parent{
+            box-shadow: 0 30px 80px rgba(0,0,0,.15);
+            margin:auto;
+        }
+
+        .stf__wrapper{
+            filter: drop-shadow(0 25px 40px rgba(0,0,0,.2));
+        }
+
+        .footer-credit{
+            position: relative;
+            color: #C8A977;
+            transition: all .3s ease;
+            font-weight: 700;
+        }
+
+        .footer-credit:hover{
+            color: #fff;
+        }
+
+        .footer-credit::after{
+            content:'';
+            position:absolute;
+            left:0;
+            bottom:-3px;
+            width:0;
+            height:1px;
+            background:#C8A977;
+            transition:width .3s ease;
+        }
+
+        .footer-credit:hover::after{
+            width:100%;
+        }
+
+        @media (max-width:768px){
+
+            #book{
+                max-width:100%;
+            }
+
+            .stf__parent{
+                transform: scale(0.95);
+                transform-origin:center top;
+            }
+
+            #prevBtn,
+            #nextBtn{
+                padding:12px 18px;
+                font-size:12px;
+            }
+        }
+
+        @media (max-width:480px){
+
+            .stf__parent{
+                transform: scale(0.9);
+            }
+
+            #book{
+                min-height:420px;
+            }
+        }
     </style>
 </head>
 <body class="bg-luxuryOffWhite text-luxuryCharcoal font-sans selection:bg-luxuryBeige selection:text-luxuryCharcoal antialiased overflow-x-hidden">
@@ -128,7 +190,7 @@
             <!-- Brand Logo -->
             <a href="#" class="group flex flex-col justify-center">
                 <span class="font-serif text-2xl tracking-[0.2em] font-light text-luxuryCharcoal uppercase group-hover:text-luxuryGold transition-colors duration-300">AYUSHI SHAH</span>
-                <span class="text-[9px] tracking-[0.4em] uppercase text-luxuryGold font-medium -mt-1 pl-0.5">Interior Design</span>
+                <span class="text-[9px] tracking-[0.4em] uppercase text-luxuryGold font-medium -mt-1 pl-0.5">Interior Designer</span>
             </a>
 
             <!-- Desktop Nav Menu -->
@@ -169,7 +231,7 @@
     </header>
 
     <!-- SECTION 1 — HERO -->
-    <section class="relative min-h-[calc(100vh-80px)] flex items-center py-12 lg:py-24 overflow-hidden">
+    <section class="relative min-h-[calc(100vh-80px)] flex items-center py-12 lg:py-12 overflow-hidden">
         <!-- Abstract premium luxury gold/beige glowing background accents -->
         <div class="absolute top-1/4 right-0 w-[400px] h-[400px] bg-luxuryBeige/20 rounded-full blur-[120px] pointer-events-none"></div>
         <div class="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-luxuryGold/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -214,7 +276,7 @@
                     <div class="absolute inset-0 border border-luxuryGold/30 m-2 pointer-events-none"></div>
                     
                     <!-- Portrait Image Placeholder -->
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                    <img src="assets/Ayushi-Shah.png" 
                          alt="Ayushi Shah - Interior Designer" 
                          class="w-full h-full object-cover filter grayscale contrast-125 transition-all duration-700 hover:grayscale-0"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x800/2F2F2F/C8A977?text=Ayushi+Shah';" />
@@ -233,7 +295,7 @@
     <div class="gold-divider"></div>
 
     <!-- SECTION 2 — ABOUT -->
-    <section id="about" class="py-16 lg:py-28 relative">
+    <section id="about" class="py-16 lg:py-12 relative">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
@@ -266,13 +328,13 @@
                     </div>
 
                     <!-- Expertise Area -->
-                    <div class="pt-8 border-t border-luxuryBeige/40">
+                    <!-- <div class="pt-8 border-t border-luxuryBeige/40">
                         <h3 class="font-serif text-xl font-normal text-luxuryCharcoal mb-6 flex items-center gap-2">
                             <span>Technical Expertise & Mastered Tools</span>
                             <span class="h-[1px] flex-grow bg-luxuryBeige/30"></span>
                         </h3>
                         <div class="flex flex-wrap gap-3">
-                            <!-- Premium tags / cards -->
+                            !-- Premium tags / cards --
                             <div class="group px-4 py-2 bg-white/40 border border-luxuryBeige/40 rounded-none text-xs uppercase tracking-widest text-luxuryCharcoal hover:border-luxuryGold hover:bg-white hover:text-luxuryGold transition-all duration-300">
                                 AutoCAD
                             </div>
@@ -301,7 +363,7 @@
                                 Concept Development
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -312,7 +374,7 @@
     <div class="gold-divider"></div>
 
     <!-- SECTION 3 — PORTFOLIO (PRIMARY FOCUS) -->
-    <section id="portfolio" class="py-16 lg:py-28 bg-[#F4F1EC] relative">
+    <section id="portfolio" class="py-16 lg:py-12 bg-[#F4F1EC] relative">
         <div class="absolute inset-0 bg-radial-gradient from-white/10 to-transparent pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -358,11 +420,11 @@
                                 style="border: 1px solid rgba(216, 203, 184, 0.4);" 
                                 src="https://heyzine.com/flip-book/9521ab544a.html">
                         </iframe> -->
-                        <div class="flex flex-col items-center">
+                        <div class="pt-12 flex flex-col items-center">
 
                             <div id="book" class="shadow-2xl"></div>
                         
-                            <div class="flex gap-4 mt-8">
+                            <div class="flex gap-4 my-8">
                                 <button id="prevBtn"
                                     class="px-6 py-3 border border-luxuryGold">
                                     Previous
@@ -390,7 +452,7 @@
                                 <i class="fa-solid fa-link mr-1.5 text-luxuryGold"></i> Share Link
                             </button>
                             <span class="text-luxuryBeige/40">|</span>
-                            <a href="https://heyzine.com/flip-book/9521ab544a.html" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest text-luxuryGold hover:text-luxuryGoldDark transition-colors duration-300 font-medium">
+                            <a href="https://ayushi-shah-id.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest text-luxuryGold hover:text-luxuryGoldDark transition-colors duration-300 font-medium">
                                 Open Direct <i class="fa-solid fa-external-link-alt ml-1"></i>
                             </a>
                         </div>
@@ -431,61 +493,77 @@
 
                 <!-- Elegant Contact Method Cards Grid -->
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
-                    <!-- Email Card -->
-                    <a href="mailto:your@email.com" class="group bg-white p-8 border border-luxuryBeige/30 hover:border-luxuryGold shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between aspect-[1.4/1]">
+
+                    <!-- Contact Card -->
+                    <a href="tel:+918160510394"
+                    class="group bg-white p-8 border border-luxuryBeige/30 hover:border-luxuryGold shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between aspect-[1.4/1]">
+
                         <div>
-                            <div class="w-10 h-10 rounded-full bg-luxuryOffWhite flex items-center justify-center mb-6 group-hover:bg-luxuryGold group-hover:text-white transition-all duration-300">
+                            <div class="w-10 h-10 rounded-full bg-luxuryOffWhite flex items-center justify-center mb-6 group-hover:bg-luxuryGold transition-all duration-300">
+                                <i class="fa-solid fa-phone text-luxuryGold group-hover:text-white"></i>
+                            </div>
+
+                            <h3 class="text-xs uppercase tracking-[0.2em] text-luxuryCharcoal/50 mb-1">
+                                Contact
+                            </h3>
+
+                            <p class="font-medium text-luxuryCharcoal text-sm sm:text-base">
+                                +91 81605 10394
+                            </p>
+                        </div>
+
+                        <span class="text-[10px] uppercase tracking-widest text-luxuryGold group-hover:translate-x-1.5 transition-transform duration-300 inline-flex items-center gap-2 mt-4">
+                            Call Now <i class="fa-solid fa-arrow-right-long"></i>
+                        </span>
+                    </a>
+
+                    <!-- Pinterest Card -->
+                    <a href="https://pinterest.com/"
+                    target="_blank"
+                    class="group bg-white p-8 border border-luxuryBeige/30 hover:border-luxuryGold shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between aspect-[1.4/1]">
+
+                        <div>
+                            <div class="w-10 h-10 rounded-full bg-luxuryOffWhite flex items-center justify-center mb-6 group-hover:bg-luxuryGold transition-all duration-300">
+                                <i class="fa-brands fa-pinterest-p text-luxuryGold group-hover:text-white"></i>
+                            </div>
+
+                            <h3 class="text-xs uppercase tracking-[0.2em] text-luxuryCharcoal/50 mb-1">
+                                Pinterest
+                            </h3>
+
+                            <p class="font-medium text-luxuryCharcoal text-sm sm:text-base">
+                                Design Inspiration
+                            </p>
+                        </div>
+
+                        <span class="text-[10px] uppercase tracking-widest text-luxuryGold group-hover:translate-x-1.5 transition-transform duration-300 inline-flex items-center gap-2 mt-4">
+                            Explore Boards <i class="fa-solid fa-arrow-right-long"></i>
+                        </span>
+                    </a>
+
+                    <!-- Email Card Full Width -->
+                    <a href="mailto:ayushi.shah2604@gmail.com"
+                    class="group sm:col-span-2 bg-white p-8 border border-luxuryBeige/30 hover:border-luxuryGold shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+
+                        <div>
+                            <div class="w-10 h-10 rounded-full bg-luxuryOffWhite flex items-center justify-center mb-6 group-hover:bg-luxuryGold transition-all duration-300">
                                 <i class="fa-regular fa-envelope text-luxuryGold group-hover:text-white"></i>
                             </div>
-                            <h3 class="text-xs uppercase tracking-[0.2em] text-luxuryCharcoal/50 mb-1">Direct Email</h3>
-                            <p class="font-medium text-luxuryCharcoal text-sm sm:text-base break-all">your@email.com</p>
+
+                            <h3 class="text-xs uppercase tracking-[0.2em] text-luxuryCharcoal/50 mb-1">
+                                Direct Email
+                            </h3>
+
+                            <p class="font-medium text-luxuryCharcoal text-lg break-all">
+                                ayushi.shah2604@gmail.com
+                            </p>
                         </div>
+
                         <span class="text-[10px] uppercase tracking-widest text-luxuryGold group-hover:translate-x-1.5 transition-transform duration-300 inline-flex items-center gap-2 mt-4">
                             Send Email <i class="fa-solid fa-arrow-right-long"></i>
                         </span>
                     </a>
 
-                    <!-- Phone Card -->
-                    <a href="tel:+91XXXXX XXXXX" class="group bg-white p-8 border border-luxuryBeige/30 hover:border-luxuryGold shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between aspect-[1.4/1]">
-                        <div>
-                            <div class="w-10 h-10 rounded-full bg-luxuryOffWhite flex items-center justify-center mb-6 group-hover:bg-luxuryGold group-hover:text-white transition-all duration-300">
-                                <i class="fa-solid fa-phone text-luxuryGold group-hover:text-white"></i>
-                            </div>
-                            <h3 class="text-xs uppercase tracking-[0.2em] text-luxuryCharcoal/50 mb-1">Call / WhatsApp</h3>
-                            <p class="font-medium text-luxuryCharcoal text-sm sm:text-base">+91 XXXXX XXXXX</p>
-                        </div>
-                        <span class="text-[10px] uppercase tracking-widest text-luxuryGold group-hover:translate-x-1.5 transition-transform duration-300 inline-flex items-center gap-2 mt-4">
-                            Connect Live <i class="fa-solid fa-arrow-right-long"></i>
-                        </span>
-                    </a>
-
-                    <!-- Instagram Card -->
-                    <a href="https://instagram.com/ayushishah" target="_blank" rel="noopener noreferrer" class="group bg-white p-8 border border-luxuryBeige/30 hover:border-luxuryGold shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between aspect-[1.4/1]">
-                        <div>
-                            <div class="w-10 h-10 rounded-full bg-luxuryOffWhite flex items-center justify-center mb-6 group-hover:bg-luxuryGold group-hover:text-white transition-all duration-300">
-                                <i class="fa-brands fa-instagram text-luxuryGold group-hover:text-white"></i>
-                            </div>
-                            <h3 class="text-xs uppercase tracking-[0.2em] text-luxuryCharcoal/50 mb-1">Design Journal</h3>
-                            <p class="font-medium text-luxuryCharcoal text-sm sm:text-base">@ayushishah</p>
-                        </div>
-                        <span class="text-[10px] uppercase tracking-widest text-luxuryGold group-hover:translate-x-1.5 transition-transform duration-300 inline-flex items-center gap-2 mt-4">
-                            Follow Story <i class="fa-solid fa-arrow-right-long"></i>
-                        </span>
-                    </a>
-
-                    <!-- LinkedIn Card -->
-                    <a href="https://linkedin.com/in/ayushi-shah" target="_blank" rel="noopener noreferrer" class="group bg-white p-8 border border-luxuryBeige/30 hover:border-luxuryGold shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between aspect-[1.4/1]">
-                        <div>
-                            <div class="w-10 h-10 rounded-full bg-luxuryOffWhite flex items-center justify-center mb-6 group-hover:bg-luxuryGold group-hover:text-white transition-all duration-300">
-                                <i class="fa-brands fa-linkedin-in text-luxuryGold group-hover:text-white"></i>
-                            </div>
-                            <h3 class="text-xs uppercase tracking-[0.2em] text-luxuryCharcoal/50 mb-1">Professional Network</h3>
-                            <p class="font-medium text-luxuryCharcoal text-sm sm:text-base">Ayushi Shah</p>
-                        </div>
-                        <span class="text-[10px] uppercase tracking-widest text-luxuryGold group-hover:translate-x-1.5 transition-transform duration-300 inline-flex items-center gap-2 mt-4">
-                            View Profile <i class="fa-solid fa-arrow-right-long"></i>
-                        </span>
-                    </a>
                 </div>
 
             </div>
@@ -505,7 +583,7 @@
             <!-- Footer Logo/Design Brand -->
             <div class="flex flex-col items-center md:items-start">
                 <span class="font-serif text-xl tracking-[0.25em] font-light text-white uppercase">AYUSHI SHAH</span>
-                <span class="text-[8px] tracking-[0.4em] uppercase text-luxuryGold font-medium -mt-1">Studio of Luxury Interiors</span>
+                <span class="text-[8px] tracking-[0.4em] uppercase text-luxuryGold font-medium -mt-1">Interior Designer | Space Stylist | Design Consultant</span>
             </div>
 
             <!-- Scroll to Top Button -->
@@ -515,7 +593,17 @@
 
             <!-- Copyright and Legal Note -->
             <p class="text-[11px] tracking-widest uppercase text-[#E5DFD5]/40 text-center md:text-right font-light">
-                &copy; 2026 Ayushi Shah. All Rights Reserved.
+                &copy; 2026 
+                <a href="https://ayushi-shah-id.github.io/Portfolio/"
+                target="_blank"
+                class="footer-credit">
+                Ayushi Shah.
+                </a> All Rights Reserved. Designed and Developed by
+                <a href="https://malav.tech"
+                target="_blank"
+                class="footer-credit">
+                Malav Shah
+                </a>
             </p>
         </div>
     </footer>
@@ -564,7 +652,8 @@
         // Copy Flipbook URL Link to clipboard elegantly
         function copyFlipbookLink() {
             const tempInput = document.createElement('input');
-            tempInput.value = "https://heyzine.com/flip-book/9521ab544a.html";
+            // tempInput.value = "https://heyzine.com/flip-book/9521ab544a.html";
+            tempInput.value = "https://ayushi-shah-id.github.io/Portfolio/";
             document.body.appendChild(tempInput);
             tempInput.select();
             document.execCommand('copy');
@@ -612,6 +701,10 @@
     <!-- Flipbook Script -->
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
     
+    <audio id="pageSound" preload="auto">
+        <source src="audio/page-flip.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Flip Book JS -->
     <script>
         const pages = [
@@ -652,24 +745,28 @@
         "pages/35.jpg"
         ];
 
-        const book = document.getElementById("book");
+        // const book = document.getElementById("book");
 
-        pages.forEach(src => {
-            const page = document.createElement("div");
+        // pages.forEach(src => {
+        //     const page = document.createElement("div");
         
-            page.innerHTML = `
-                <img src="${src}"
-                style="
-                width:100%;
-                height:100%;
-                object-fit:contain;
-                ">
-            `;
+        //     page.innerHTML = `
+        //         <img src="${src}"
+        //         style="
+        //         width:100%;
+        //         height:100%;
+        //         object-fit:contain;
+        //         ">
+        //     `;
         
-            book.appendChild(page);
+        //     book.appendChild(page);
+        // });
+
+        window.addEventListener('resize', () => {
+            location.reload();
         });
         
-        // const book = document.getElementById("book");
+        const book = document.getElementById("book");
 
         for(let i = 1; i <= 35; i++) {
         
@@ -683,38 +780,82 @@
             book.appendChild(page);
         }
         
-        const flipBook = new St.PageFlip(book, {
-            width: 790,
-            height: 790,
-        
-            size: "stretch",
-        
-            minWidth: 320,
-            maxWidth: 900,
-        
-            minHeight: 320,
-            maxHeight: 900,
-        
-            showCover: true,
-        
-            usePortrait: true,
-        
-            autoSize: true,
-        
-            mobileScrollSupport: false,
-        
-            maxShadowOpacity: 0.5
-        });
+        // const flipBook = new St.PageFlip(book,{
+        //     width:850,
+        //     height:850,
+
+        //     size:"stretch",
+
+        //     minWidth:350,
+        //     maxWidth:850,
+
+        //     minHeight:350,
+        //     maxHeight:850,
+
+        //     showCover:true,
+
+        //     usePortrait:false, // <-- IMPORTANT
+
+        //     autoSize:true,
+
+        //     mobileScrollSupport:true,
+
+        //     maxShadowOpacity:0.6,
+
+        //     drawShadow:true,
+
+        //     flippingTime:800
+        // });
+
+        const isMobile = window.innerWidth < 768;
+
+const flipBook = new St.PageFlip(book,{
+    width:850,
+    height:850,
+
+    size:"stretch",
+
+    minWidth:280,
+    maxWidth:850,
+
+    minHeight:280,
+    maxHeight:850,
+
+    showCover:true,
+
+    usePortrait: window.innerWidth < 768,
+
+    autoSize:true,
+
+    mobileScrollSupport:true,
+
+    maxShadowOpacity:0.6,
+
+    drawShadow:true,
+
+    flippingTime:800
+});
         
         flipBook.loadFromHTML(
             document.querySelectorAll("#book .page")
         );
+
+        const pageSound = document.getElementById("pageSound");
+
+        // flipBook.on("flip", () => {
+        //     pageSound.currentTime = 0;
+        //     pageSound.play().catch(() => {});
+        // });
         
         document.getElementById("prevBtn").addEventListener("click", () => {
+            pageSound.currentTime = 0;
+            pageSound.play().catch(()=>{});
             flipBook.flipPrev();
         });
-        
+
         document.getElementById("nextBtn").addEventListener("click", () => {
+            pageSound.currentTime = 0;
+            pageSound.play().catch(()=>{});
             flipBook.flipNext();
         });
     </script>
