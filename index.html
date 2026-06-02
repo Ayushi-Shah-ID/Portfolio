@@ -669,43 +669,54 @@
             book.appendChild(page);
         });
         
-        const flipBook = new St.PageFlip(
-            document.getElementById("book"),
-            {
-                width: 790,
-                height: 790,
+        // const book = document.getElementById("book");
+
+        for(let i = 1; i <= 35; i++) {
         
-                size: "stretch",
+            const page = document.createElement("div");
+            page.className = "page";
         
-                minWidth: 280,
-                maxWidth: 900,
+            page.innerHTML = `
+                <img src="pages/${i}.jpg" alt="Portfolio Page ${i}">
+            `;
         
-                minHeight: 280,
-                maxHeight: 900,
+            book.appendChild(page);
+        }
         
-                showCover: true,
+        const flipBook = new St.PageFlip(book, {
+            width: 790,
+            height: 790,
         
-                mobileScrollSupport: true,
+            size: "stretch",
         
-                usePortrait: true,
+            minWidth: 320,
+            maxWidth: 900,
         
-                autoSize: true,
+            minHeight: 320,
+            maxHeight: 900,
         
-                maxShadowOpacity: 0.5
-            }
-        );
+            showCover: true,
+        
+            usePortrait: true,
+        
+            autoSize: true,
+        
+            mobileScrollSupport: false,
+        
+            maxShadowOpacity: 0.5
+        });
         
         flipBook.loadFromHTML(
-            document.querySelectorAll("#book > div")
+            document.querySelectorAll("#book .page")
         );
         
-        document
-        .getElementById("prevBtn")
-        .onclick = () => flipBook.flipPrev();
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            flipBook.flipPrev();
+        });
         
-        document
-        .getElementById("nextBtn")
-        .onclick = () => flipBook.flipNext();
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            flipBook.flipNext();
+        });
     </script>
     
 </body>
