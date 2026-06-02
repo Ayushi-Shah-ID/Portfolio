@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- FontAwesome for Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flipbook Librery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip/dist/css/page-flip.css">
     
     <script>
         tailwind.config = {
@@ -97,13 +99,6 @@
             position: absolute;
             background-color: #F8F6F2;
         }
-        .logo-backs2,
-.logo-backs,
-[class*="logo-back"]{
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-}
     </style>
 </head>
 <body class="bg-luxuryOffWhite text-luxuryCharcoal font-sans selection:bg-luxuryBeige selection:text-luxuryCharcoal antialiased overflow-x-hidden">
@@ -337,13 +332,30 @@
                     <div class="flipbook-container w-full relative overflow-hidden bg-luxuryOffWhite rounded-none shadow-inner flex justify-center items-center">
                         
                         <!-- Embedded actual interactive iframe -->
-                        <iframe allowfullscreen="allowfullscreen" 
+                        <!-- <iframe allowfullscreen="allowfullscreen" 
                                 allow="clipboard-write" 
                                 scrolling="no" 
                                 class="fp-iframe w-full border-0 shadow-lg min-h-[420px] sm:min-h-[500px] lg:min-h-[680px]" 
                                 style="border: 1px solid rgba(216, 203, 184, 0.4);" 
                                 src="https://heyzine.com/flip-book/9521ab544a.html">
-                        </iframe>
+                        </iframe> -->
+                        <div class="flex flex-col items-center">
+
+                            <div id="book" class="shadow-2xl"></div>
+                        
+                            <div class="flex gap-4 mt-8">
+                                <button id="prevBtn"
+                                    class="px-6 py-3 border border-luxuryGold">
+                                    Previous
+                                </button>
+                        
+                                <button id="nextBtn"
+                                    class="px-6 py-3 bg-luxuryGold text-white">
+                                    Next
+                                </button>
+                            </div>
+                        
+                        </div>
 
                     </div>
 
@@ -491,12 +503,6 @@
 
     <!-- Script Logic -->
     <script>
-
-        setInterval(() => {
-    document.querySelectorAll('.logo-backs2,.logo-backs').forEach(el => {
-        el.style.display = 'none';
-    });
-}, 1000);
         
         // Toggle mobile drawer navigation menu
         const menuBtn = document.getElementById('menu-btn');
@@ -583,5 +589,104 @@
             }
         });
     </script>
+
+    <!-- Flip Book JS -->
+    <script>
+        const pages = [
+        "pages/1.jpg",
+        "pages/2.jpg",
+        "pages/3.jpg",
+        "pages/4.jpg",
+        "pages/5.jpg",
+        "pages/6.jpg",
+        "pages/7.jpg",
+        "pages/8.jpg",
+        "pages/9.jpg",
+        "pages/10.jpg",
+        "pages/11.jpg",
+        "pages/12.jpg",
+        "pages/13.jpg",
+        "pages/14.jpg",
+        "pages/15.jpg",
+        "pages/16.jpg",
+        "pages/17.jpg",
+        "pages/18.jpg",
+        "pages/19.jpg",
+        "pages/20.jpg",
+        "pages/21.jpg",
+        "pages/22.jpg",
+        "pages/23.jpg",
+        "pages/24.jpg",
+        "pages/25.jpg",
+        "pages/26.jpg",
+        "pages/27.jpg",
+        "pages/28.jpg",
+        "pages/29.jpg",
+        "pages/30.jpg",
+        "pages/31.jpg",
+        "pages/32.jpg",
+        "pages/33.jpg",
+        "pages/34.jpg",
+        "pages/35.jpg"
+        ];
+
+        const book = document.getElementById("book");
+
+        pages.forEach(src => {
+            const page = document.createElement("div");
+        
+            page.innerHTML = `
+                <img src="${src}"
+                style="
+                width:100%;
+                height:100%;
+                object-fit:contain;
+                ">
+            `;
+        
+            book.appendChild(page);
+        });
+        
+        const flipBook = new St.PageFlip(
+            document.getElementById("book"),
+            {
+                width: 790,
+                height: 790,
+        
+                size: "stretch",
+        
+                minWidth: 280,
+                maxWidth: 900,
+        
+                minHeight: 280,
+                maxHeight: 900,
+        
+                showCover: true,
+        
+                mobileScrollSupport: true,
+        
+                usePortrait: true,
+        
+                autoSize: true,
+        
+                maxShadowOpacity: 0.5
+            }
+        );
+        
+        flipBook.loadFromHTML(
+            document.querySelectorAll("#book > div")
+        );
+        
+        document
+        .getElementById("prevBtn")
+        .onclick = () => flipBook.flipPrev();
+        
+        document
+        .getElementById("nextBtn")
+        .onclick = () => flipBook.flipNext();
+    </script>
+    
+    <!-- Flipbook Script -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
 </body>
 </html>
