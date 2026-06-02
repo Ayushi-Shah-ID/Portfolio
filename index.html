@@ -97,12 +97,13 @@
             position: absolute;
             background-color: #F8F6F2;
         }
-        .logo-backs2 {
-            display: none !important;        
-        }
-        div a img{
-            display: none !important;        
-        }
+        .logo-backs2,
+.logo-backs,
+[class*="logo-back"]{
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
     </style>
 </head>
 <body class="bg-luxuryOffWhite text-luxuryCharcoal font-sans selection:bg-luxuryBeige selection:text-luxuryCharcoal antialiased overflow-x-hidden">
@@ -490,6 +491,13 @@
 
     <!-- Script Logic -->
     <script>
+
+        setInterval(() => {
+    document.querySelectorAll('.logo-backs2,.logo-backs').forEach(el => {
+        el.style.display = 'none';
+    });
+}, 1000);
+        
         // Toggle mobile drawer navigation menu
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
