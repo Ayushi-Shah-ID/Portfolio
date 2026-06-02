@@ -180,6 +180,12 @@
                 min-height:420px;
             }
         }
+
+        button:disabled{
+            opacity:.4;
+            cursor:not-allowed;
+            pointer-events:none;
+        }
     </style>
 </head>
 <body class="bg-luxuryOffWhite text-luxuryCharcoal font-sans selection:bg-luxuryBeige selection:text-luxuryCharcoal antialiased overflow-x-hidden">
@@ -518,26 +524,26 @@
                     </a>
 
                     <!-- Pinterest Card -->
-                    <a href="https://pinterest.com/"
+                    <a href="https://wa.me/918160510394?text=Hello%20Ayushi%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
                     target="_blank"
                     class="group bg-white p-8 border border-luxuryBeige/30 hover:border-luxuryGold shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between aspect-[1.4/1]">
 
                         <div>
                             <div class="w-10 h-10 rounded-full bg-luxuryOffWhite flex items-center justify-center mb-6 group-hover:bg-luxuryGold transition-all duration-300">
-                                <i class="fa-brands fa-pinterest-p text-luxuryGold group-hover:text-white"></i>
+                                <i class="fa-brands fa-whatsapp text-luxuryGold group-hover:text-white"></i>
                             </div>
 
                             <h3 class="text-xs uppercase tracking-[0.2em] text-luxuryCharcoal/50 mb-1">
-                                Pinterest
+                                WhatsApp
                             </h3>
 
                             <p class="font-medium text-luxuryCharcoal text-sm sm:text-base">
-                                Design Inspiration
+                                Quick Project Discussion
                             </p>
                         </div>
 
                         <span class="text-[10px] uppercase tracking-widest text-luxuryGold group-hover:translate-x-1.5 transition-transform duration-300 inline-flex items-center gap-2 mt-4">
-                            Explore Boards <i class="fa-solid fa-arrow-right-long"></i>
+                            Message Me <i class="fa-solid fa-arrow-right-long"></i>
                         </span>
                     </a>
 
@@ -761,10 +767,6 @@
         
         //     book.appendChild(page);
         // });
-
-        window.addEventListener('resize', () => {
-            location.reload();
-        });
         
         const book = document.getElementById("book");
 
@@ -809,36 +811,54 @@
 
         const isMobile = window.innerWidth < 768;
 
-const flipBook = new St.PageFlip(book,{
-    width:850,
-    height:850,
+        const flipBook = new St.PageFlip(book,{
+            width:850,
+            height:850,
 
-    size:"stretch",
+            size:"stretch",
 
-    minWidth:280,
-    maxWidth:850,
+            minWidth:280,
+            maxWidth:850,
 
-    minHeight:280,
-    maxHeight:850,
+            minHeight:280,
+            maxHeight:850,
 
-    showCover:true,
+            showCover:true,
 
-    usePortrait: window.innerWidth < 768,
+            usePortrait: window.innerWidth < 768,
 
-    autoSize:true,
+            autoSize:true,
 
-    mobileScrollSupport:true,
+            mobileScrollSupport:true,
 
-    maxShadowOpacity:0.6,
+            maxShadowOpacity:0.6,
 
-    drawShadow:true,
+            drawShadow:true,
 
-    flippingTime:800
-});
+            flippingTime:800
+        });
+
+        function updateButtons() {
+
+            const currentPage = flipBook.getCurrentPageIndex();
+            const totalPages = flipBook.getPageCount();
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage >= totalPages - 2;
+        }
         
         flipBook.loadFromHTML(
             document.querySelectorAll("#book .page")
         );
+
+        updateButtons();
+
+        flipBook.on("flip", () => {
+            updateButtons();
+        });
 
         const pageSound = document.getElementById("pageSound");
 
